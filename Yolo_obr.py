@@ -2,7 +2,7 @@ import os
 import json
 import logging
 
-# --- Конфигурация ---
+
 MATCHES_FOLDER = 'matches'
 TEXTS_FOLDER = 'texts'
 
