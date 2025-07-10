@@ -3,9 +3,9 @@ import json
 import numpy as np
 import logging
 
-# --- Конфигурация ---
-DETECTIONS_FOLDER = 'detections'  # папка с JSON из первого этапа
-MATCHES_FOLDER = 'matches'         # папка с результатами сопоставления
+
+DETECTIONS_FOLDER = 'detections'  
+MATCHES_FOLDER = 'matches'         
 TEXT_CLASS_NAME = 'text'
 NUMBER_CLASS_NAME = 'number'
 
@@ -45,14 +45,14 @@ def main():
         for text_obj in text_boxes:
             nearest_num = find_nearest_number(text_obj['bbox'], [n['bbox'] for n in number_boxes])
 
-            # Получаем номер объекта по bbox
+       
             number_obj = next(n for n in number_boxes if n['bbox'] == nearest_num)
 
             matches.append({
                 'text_bbox': text_obj['bbox'],
                 'number_bbox': number_obj['bbox'],
-                'text_label': text_obj.get('text', ''),     # можно расширить, если нужна OCR
-                'number_label': number_obj.get('text', '')  # можно расширить, если нужна OCR
+                'text_label': text_obj.get('text', ''),    
+                'number_label': number_obj.get('text', '') 
             })
 
         out_path = os.path.join(MATCHES_FOLDER, filename)
