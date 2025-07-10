@@ -4,7 +4,7 @@ import os
 import json
 import logging
 
-# === Конфигурация ===
+
 MODEL_PATH = 'yolo_model.pt'            # путь к обученной модели
 IMAGES_FOLDER = 'images'                 # папка с изображениями для детекции
 DETECTIONS_FOLDER = 'detections'        # папка для JSON с результатами детекции
