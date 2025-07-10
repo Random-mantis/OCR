@@ -47,7 +47,7 @@ for file in os.listdir(TEXTS_FOLDER):
                        
                     })
 
-# --- Записываем в DataFrame и CSV ---
+
 df = pd.DataFrame(combined_data)
 df.to_csv(OUTPUT_CSV, index=False, encoding='utf-8')
 print(f"✅ Объединено записей: {len(df)}")
