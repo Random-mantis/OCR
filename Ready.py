@@ -2,12 +2,11 @@ import os
 import json
 import pandas as pd
 
-# --- Конфигурация ---
-TEXTS_FOLDER = 'texts'       # Папка с json файлами текстов (исправленные после 3-го этапа)
-SCORES_FOLDER = 'jsons'      # Папка с json файлами оценок
-OUTPUT_CSV = 'dataset.csv'   # Итоговый csv файл для обучения
 
-# --- Считываем оценки ---
+TEXTS_FOLDER = 'texts'      
+SCORES_FOLDER = 'jsons'     
+OUTPUT_CSV = 'dataset.csv'   
+
 score_data = {}
 for file in os.listdir(SCORES_FOLDER):
     if file.lower().endswith('.json'):
@@ -29,7 +28,7 @@ for file in os.listdir(SCORES_FOLDER):
                             pass
                 score_data[task_id] = total_score
 
-# --- Считываем тексты и объединяем с оценками ---
+
 combined_data = []
 for file in os.listdir(TEXTS_FOLDER):
     if file.lower().endswith('.json'):
@@ -45,7 +44,7 @@ for file in os.listdir(TEXTS_FOLDER):
                         'text': text,
                         'score': score,
                         'task_id': task_num,
-                        # Если есть в json, можно добавить 'variant': text_record.get('variant')
+                       
                     })
 
 # --- Записываем в DataFrame и CSV ---
